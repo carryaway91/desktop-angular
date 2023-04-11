@@ -9,6 +9,7 @@ export class Folder {
         public size: string,
         public nestable: boolean,
         public text: string,
-        public folders?: Folder[]
+        public folders?: Folder[],
+        public defaultText?: boolean
         ) {}    
 }
