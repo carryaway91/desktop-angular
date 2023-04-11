@@ -38,7 +38,10 @@ width: w + 'vw', height: h + 'vh', display: minimalized ? 'none' : 'block' }"
         </div>
     </div>
     <ng-template #textfile>
-        <div contenteditable="true" #textDiv style="flex: 1; height: 100%; padding: 1rem; outline: none" [innerHTML]="text" (input)="type()"></div>
+        <div *ngIf="folder.defaultText; else notDefault" contenteditable="true" #textDiv style="flex: 1; height: 100%; padding: 1rem; outline: none" [innerHTML]="text" (input)="type()"></div>
+    </ng-template>
+    <ng-template #notDefault>
+        <div contenteditable="true" #textDiv style="flex: 1; height: 100%; padding: 1rem; outline: none" [textContent]="text" (input)="type()"></div>
     </ng-template>
     
 </div>
