@@ -33,7 +33,7 @@ export class FolderService {
     {id:999, type: FOLDER_TYPE.COMPUTER, name: "This PC",image: '../../assets/monitor.png', x: 40, y: 40, size: "50", nestable: true, folders: [], text: ''},
     {id:997, type: FOLDER_TYPE.RECYCLE, name: "Recycle Bin",image: '../../assets/recycle-bin.png', x: 40, y: 130, size: "50", nestable: false, folders: [], text: ''},
     {id:998, type: FOLDER_TYPE.FOLDER, name: "New Folder",image: '../../assets/folder.png', x: 40, y: 220, size: "50", nestable: true, folders: [], text: ''},
-    {id:996, type: FOLDER_TYPE.TEXT, name: "Manual",image: '../../assets/text.png', x: 40, y: 310, size: "50", nestable: true, text: this.manualText}]
+    {id:996, type: FOLDER_TYPE.TEXT, name: "Manual",image: '../../assets/text.png', x: 40, y: 310, size: "50", nestable: true, text: this.manualText, defaultText: true}]
     openFolder: Folder | null;
     folderIsOpen: boolean = false
     minimalized: boolean = false
@@ -86,7 +86,8 @@ export class FolderService {
             size: size === "M" ? size = "50" : size === "L" ? size = "70" : size = "30",
             nestable: true,
             folders: [],
-            text: ""
+            text: "",
+            defaultText: false
         }
         this.folders.push(newFolder)
         this.foldersUpdated.emit(this.folders)
