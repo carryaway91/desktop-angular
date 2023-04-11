@@ -1,0 +1,15 @@
+<div class="context-window-wrapper" #context [ngStyle]="{opacity: opacity, left: left + 'px', top: top + 'px'}">
+    <ul>
+        <li appShowSublist *ngFor="let item of linkItems" (click)="clickMainItem($event, item.id)">
+            <div>
+                <img style="width: 15px; margin-right: .5rem; position: relative; top: 2px" [src]="item.icon" alt="">
+                {{ item.text }}
+            </div>
+            <span *ngIf="item.hasSubitems">&rsaquo;</span>
+            <ul class="sublist" *ngIf="item.hasSubitems">
+                <li (click)="clickSubitem($event, subItem.id)" class="subItem" *ngFor="let subItem of item.subItems"
+                ><img style="width: 15px; margin-right: .5rem; position: relative; top: 2px" [src]="subItem.icon" alt="">{{subItem.text}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>

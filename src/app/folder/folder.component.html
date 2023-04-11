@@ -1,0 +1,15 @@
+    <div [ngStyle]="{left: x - 45 +'px', top: y - 45 + 'px', zIndex: grabbed ? 500 : 1000 }"
+    (mousedown)="folderGrabbed($event)"
+    (mousemove)="move($event)"
+    (mouseup)="removeGrab($event)"
+    (mouseover)="isOverFolder(true)"
+    (mouseleave)="isOverFolder(false)"
+    #fldr
+    class="folder-container" (dblclick)="openFolder()" (mouseup)="openContextUponFolder($event, folder)">
+    <img [src]="folder.image" alt=""  class="folder-img" [ngStyle]="{width: scale + 'px'} ">
+    <ng-template #nameIsSet>
+        <div class="name">{{ folder.name }}</div>
+    </ng-template>
+    <div *ngIf="isUpon" class="movingTo">{{ movingToText }}</div>
+    <div *ngIf="renaming; else nameIsSet"class="folder-name" (click)="prevent($event)"  #nameInput contenteditable="true" (input)="checkEnter($event)" [textContent]="folder.name"></div>
+</div>

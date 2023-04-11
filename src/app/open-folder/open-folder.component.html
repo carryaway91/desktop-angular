@@ -1,0 +1,44 @@
+<div class="open-folder" #openFolder (click)="prevent($event)"
+[ngStyle]="{position: 'absolute', left: x + 'px', top: y  + 'px', 
+width: w + 'vw', height: h + 'vh', display: minimalized ? 'none' : 'block' }"
+>
+<div class="draggable"
+(mousedown)="folderGrabbed($event)"
+(mousemove)="move($event)"
+(mouseup)="removeGrab()"
+(dblclick)="maxOrMin()"
+#draggable
+[ngStyle]="tabActive ? {background: '#98d3e7'} : { background: 'rgb(209, 209, 209)'}"
+(mousedown)="active($event)"
+(click)="active($event)"
+>
+    <div class="tab">
+        <img class="tab-image" [src]="'../../assets/text.png'" />
+        {{ folder.name }}
+    </div>
+    <div class="controls">
+        <button (click)="minimalize()">&#8211;</button><button (click)="maxOrMin()" style="font-size: 21px; position: relative;
+        "><span style="position: relative; top: -1.5px">&#9633;</span></button><button (click)="exitWindow()" class="exit">&#10005;</button>
+    </div>
+</div>
+    <div class="folder-main" *ngIf="folder.type === 0 || folder.type === 1 || folder.type ===  2; else textfile">
+        <div class="folder-tree">
+            <ul>
+                <li *ngFor="let subFolder of folder.folders"><span><img [src]="'../../assets/folder.png'" class="icon" alt=""></span>{{ subFolder.name }}</li>
+            </ul>
+        </div>
+        <div class="folder-content">
+            <p style="text-align: center; width: 100%" *ngIf="folder.folders?.length === 0; else contains">This folder is empty.</p>
+            <ng-template #contains>
+                <ul class="folder-list">
+                    <li *ngFor="let subFolder of folder.folders"><span><img [src]="'../../assets/folder.png'" class="icon" alt=""></span>{{ subFolder.name }}</li>
+                </ul>
+            </ng-template>
+            
+        </div>
+    </div>
+    <ng-template #textfile>
+        <div contenteditable="true" #textDiv style="flex: 1; height: 100%; padding: 1rem; outline: none" [innerHTML]="text" (input)="type()"></div>
+    </ng-template>
+    
+</div>

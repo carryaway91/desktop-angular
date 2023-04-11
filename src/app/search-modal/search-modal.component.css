@@ -1,0 +1,12 @@
+.searchPanel {
+    width: 40vw;
+    height: 70vh;
+    position: absolute;
+    transition: bottom .2s ease-in-out;
+    left: 45vw;
+    background: rgb(41, 41, 41);
+    position: absolute;
+    border-radius: 10px;
+    border: .5px solid rgb(85, 83, 83);
+    z-index: 1
+}

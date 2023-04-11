@@ -1,0 +1,29 @@
+<div class="app" (click)="renamingFalse()">
+    
+<div class="desktop" #desktop [ngStyle]="{height: '95.5vh', width: '100%'}"
+(mousedown)="onStartTheSelection($event)" (mousemove)="onDragMouse($event)"  
+(mouseup)="deleteSelection()"
+(mouseup)="onContext($event)"
+ondragover="true" 
+>
+<div class="folder-list">
+    <app-folder (mouseup)="addFolderToAnother(folder.id, currentlyGrabbedFolder)" [isUpon]="isUpon && folder.id === toBePushedFolderId && folder.id !== currentlyGrabbedFolder?.id" [movingToText]="movingToText" #folder *ngFor="let folder of folders" [folder]="folder" [mousedata]="{x: mouseX, y: mouseY}" (mouseleave)="reset()" (mousemove)="checkIfOnTopAnotherFolder($event, folder)" 
+    (overalSizeOnDesktop)="addFolderWithData($event)"></app-folder>
+</div>
+<app-open-folder *ngIf="folderIsOpen" [folder]="openFolder" ></app-open-folder>
+<app-selection *ngIf="!overFolder"
+[dir]="dir"
+[width]="w" 
+[height]="h"
+[top]="top" 
+[left]="left" 
+>
+</app-selection>
+<app-context-window *ngIf="contextVisible"
+    [left]="contextLeft"
+    [top]="contextTop"
+></app-context-window>
+</div>
+<app-taskbar>
+</app-taskbar>
+</div>

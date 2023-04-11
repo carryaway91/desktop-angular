@@ -1,0 +1,23 @@
+.folder-list {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    flex-wrap: wrap;
+    height: 80vh
+}
+
+.desktop {
+    background-image: url('../assets/screen.jpg');
+    background-size: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+}
+

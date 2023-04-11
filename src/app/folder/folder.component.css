@@ -1,0 +1,44 @@
+
+.folder-container {
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    margin: .5rem;
+    position: fixed;
+    padding: .2rem
+}
+
+.folder-container:hover {
+    background: rgba(255, 255, 255, .1);
+}
+
+.folder-container img {
+    width: 50px;
+}
+
+.folder-name {
+    background: white;
+    border: 1px solid black;
+    outline: none;
+    max-width: 100%;
+    padding: .1rem;
+    display: block;
+}
+
+.name {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-size: .7rem;
+    max-width: 100%;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.movingTo {
+    color: rgb(0, 0, 0);
+    padding: 0.1rem;
+    background: rgb(255, 255, 255);
+    position: fixed;
+}

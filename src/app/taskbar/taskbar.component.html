@@ -1,0 +1,10 @@
+<div class="taskbar-wrapper">
+    <div>
+        <img src="../../assets/windows.svg" style="width: 32px; padding: 2px" alt="">
+    </div>
+    <input class="input" placeholder="Search" (click)="openSearchPanel($event)" />
+    <div (click)="triggerIcon($event)" (mousedown)="scaleDown()" (mouseup)="scaleUp()" class="taskbar-icon" *ngIf="folderIsOpen">
+        <img #img [src]="folder && folder.type === 0 ? '../../assets/folder.png' : folder && folder.type === 1 ? '../../assets/monitor.png' : folder && folder.type === 2 ? '../../assets/recycle-bin.png' : '../../assets/text.png'" />
+        <span class="bar" #bar></span>
+    </div>
+</div>
