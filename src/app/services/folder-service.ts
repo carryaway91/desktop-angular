@@ -61,7 +61,7 @@ export class FolderService {
        switch(id) {
         case 10: this.onCreateFolder(x, y, size, 0);
         break;
-        case 11: this.onCreateFolder(x, y, size, 1);
+        case 11: this.onCreateFolder(x, y, size, 3);
         break;
         case 2: this.onEnlargeIcons();
         break
